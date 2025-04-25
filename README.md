@@ -1,0 +1,7 @@
+Rate limiting is a technique used to control the amount of incoming or outgoing traffic within a network. In this context, a network refers to the line of communication between a client (e.g., a web browser) and our server (e.g., an API).
+
+**Rate limit** controls the number of requests that are sent to the server or an API. It protects the server against user misuse to maintain stability. **Throttle** is a more rigid method that stops the clients from requesting the server for a certain period, which allows the API to effectively manage incoming traffic. The key difference between rate limit and throttle lies in the level at which these techniques operate and their responses when limits are reached. **Rate limiting gently slows down clients, reminding them of the specified request limits, while throttling takes a more rigid approach, temporarily halting clients from making requests for a set period.**
+
+**The [express-rate-limit]() middleware is used to control the rate of incoming requests to an Express application.** `windowMs` defines the time in milliseconds during which the rate limit applies. For example, `windowMs: 15 _ 60 _ 1000` sets a 15-minute window. `max` specifies the maximum number of requests allowed from a single IP address within the time window. If requests exceed this defined limit then the rate limit will be triggered.
+
+> [**Express rate limit and slow down**](https://developer.mozilla.org/en-US/blog/securing-apis-express-rate-limit-and-slow-down/)
