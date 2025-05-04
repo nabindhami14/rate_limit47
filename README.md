@@ -6,4 +6,26 @@ Rate limiting is a technique used to control the amount of incoming or outgoing 
 
 **A `req.rateLimit` property is added to all requests with the `limit`, `used`, and `remaining number` of requests and, if the store provides it, a `resetTime` Date object. These may be used in your application code to take additional actions or inform the user of their status. Note that used includes the `current` request, so it should always be > 0.**
 
+```js
+const run = () => {
+  const instance = autocannon({
+    url: "http://localhost:3000",
+    method: "GET",
+    connections: 500,
+    pipelining: 10,
+    duration: 20,
+  });
+
+  autocannon.track(instance, {
+    renderProgressBar: true,
+    renderResultsTable: true,
+    // renderLatencyTable: true,
+  });
+};
+
+run();
+```
+
+---
+
 > [**Express rate limit and slow down**](https://developer.mozilla.org/en-US/blog/securing-apis-express-rate-limit-and-slow-down/)

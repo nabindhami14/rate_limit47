@@ -2,10 +2,17 @@ import autocannon from "autocannon";
 
 const run = () => {
   const instance = autocannon({
-    url: "http://localhost:3000",
+    url: "",
     method: "GET",
-    connections: 500,
-    pipelining: 10,
+    headers: {
+      "x-access-token":
+        "",
+      "client-id": "",
+      Authorization:
+        "",
+    },
+    connections: 10000,
+    // pipelining: 10,
     duration: 20,
   });
 
